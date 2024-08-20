@@ -1,6 +1,11 @@
 ინსტალაციის ინტრუქცია
 ============
 
+ვირტუალური გარემოს შექმნა venv
+```console
+python -m venv .venv
+```
+
 ბიბლიოთეკების ინსტალაცია
 ```console
 pip install -r requirements.txt
