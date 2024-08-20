@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load cart_tags %}
+{% load helper %}
+{% block title %}
+    გადახდა
+{% endblock title %}
+{% block content %}
+    <div class="bg-gray-100 px-4 py-8 lg:py-10 lg:px-8 xl:py-14 xl:px-16 2xl:px-20 mt-24">
+        <div class="m-auto flex w-full max-w-7xl flex-col items-center rtl:space-x-reverse lg:flex-row lg:items-start lg:space-x-8">
+            <form action="{% url 'checkout' %}" method="post" class="w-full space-y-6 lg:max-w-[70%]" id="checkout_form">
+                {% csrf_token %}
+                <div class="bg-light p-5 shadow-700 md:p-8">
+                    <div class="mb-5 flex items-center justify-between md:mb-8">
+                        <div class="flex items-center space-x-3 rtl:space-x-reverse md:space-x-4">
+                            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-base text-light lg:text-xl">1</span>
+                            <p class="text-lg capitalize text-heading lg:text-xl">მიწოდების მისამართი</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 my-6">
+                        <div>
+                            <label for="firstname" class="mb-3 block text-sm font-semibold leading-none text-body-dark">სახელი</label>
+                            <input id="firstname" name="firstname" type="text" class="flex w-full appearance-none items-center px-4 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base rounded focus:border-accent h-12" autocomplete="off" value="{{ request.POST|get_dict_value:'firstname' }}">
+                            <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'firstname' }}</div>
+                        </div>
+                        <div>
+                            <label for="lastname" class="mb-3 block text-sm font-semibold leading-none text-body-dark">გვარი</label>
+                            <input id="lastname" name="lastname" type="text" class="flex w-full appearance-none items-center px-4 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base rounded focus:border-accent h-12" autocomplete="off" value="{{ request.POST|get_dict_value:'lastname' }}">
+                            <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'lastname' }}</div>
+                        </div>
+                        <div>
+                            <label for="phone" class="mb-3 block text-sm font-semibold leading-none text-body-dark">მობილური</label>
+                            <input id="phone" name="phone" type="text" class="flex w-full appearance-none items-center px-4 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base rounded focus:border-accent h-12" autocomplete="off" value="{{ request.POST|get_dict_value:'phone' }}">
+                            <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'phone' }}</div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 my-6">
+                        <div>
+                            <label for="city" class="mb-3 block text-sm font-semibold leading-none text-body-dark">ქალაქი</label>
+                            <input id="city" name="city" type="text" class="flex w-full appearance-none items-center px-4 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base rounded focus:border-accent h-12" autocomplete="off" value="{{ request.POST|get_dict_value:'city' }}">
+                            <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'city' }}</div>
+                        </div>
+                        <div>
+                            <label for="region" class="mb-3 block text-sm font-semibold leading-none text-body-dark">რეგიონი</label>
+                            <input id="region" name="region" type="text" class="flex w-full appearance-none items-center px-4 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base rounded focus:border-accent h-12" autocomplete="off" value="{{ request.POST|get_dict_value:'region' }}">
+                            <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'region' }}</div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 my-6">
+                        <div>
+                            <label for="address" class="mb-3 block text-sm font-semibold leading-none text-body-dark">მისამართი</label>
+                            <input id="address" name="address" type="text" class="flex w-full appearance-none items-center px-4 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base rounded focus:border-accent h-12" autocomplete="off" value="{{ request.POST|get_dict_value:'address' }}">
+                            <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'address' }}</div>
+                        </div>
+                        <div>
+                            <label for="second_address" class="mb-3 block text-sm font-semibold leading-none text-body-dark">მისამართი 2</label>
+                            <input id="second_address" name="second_address" type="text" class="flex w-full appearance-none items-center px-4 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base rounded focus:border-accent h-12" autocomplete="off" value="{{ request.POST|get_dict_value:'second_address' }}">
+                            <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'second_address' }}</div>
+                        </div>
+                    </div>
+
+                    <div class="my-6">
+                        <label for="additional_info" class="mb-3 block text-sm font-semibold leading-none text-body-dark">დამატებითი ინფორმაცია კურიერს</label>
+                        <textarea id="additional_info" name="additional_info" class="flex w-full appearance-none items-center rounded px-4 py-3 text-sm text-heading transition duration-300 ease-in-out focus:outline-0 focus:ring-0 border border-border-base focus:border-accent" autocomplete="off" autocapitalize="off" spellcheck="false" rows="4">{{ request.POST|get_dict_value:'additional_info' }}</textarea>
+                        <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'additional_info' }}</div>
+                    </div>
+                </div>
+                <div class="bg-light p-5 shadow-700 md:p-8">
+                    <div class="mb-5 flex items-center justify-between md:mb-8">
+                        <div class="flex items-center space-x-3 rtl:space-x-reverse md:space-x-4">
+                            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-base text-light lg:text-xl">2</span>
+                            <p class="text-lg capitalize text-heading lg:text-xl">მიწოდების განრიგი</p>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="sr-only" id="headlessui-label-:r3:" role="none">მიწოდების განრიგი</label>
+                        <input id="delivery_schedule" type="text" name="delivery_schedule" value="{{ request.POST|get_dict_value:'delivery_schedule,express' }}" hidden/>
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3" role="none">
+                            {% if request.POST|get_dict_value:'delivery_schedule,express' == 'express' %}
+                            <div data-radio-checked="true" data-radio-value="express">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent border-accent shadow-sm select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">ექსპრესი</span>
+                                    <span class="text-sm text-heading block">90 წუთში მიწოდება</span>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div data-radio-checked="false" data-radio-value="express">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent bg-gray-100 border-transparent select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">ექსპრესი</span>
+                                    <span class="text-sm text-heading block">90 წუთში მიწოდება</span>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if request.POST|get_dict_value:'delivery_schedule,express' == 'morning' %}
+                            <div data-radio-checked="true" data-radio-value="morning">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent border-accent shadow-sm select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">დილა</span>
+                                    <span class="text-sm text-heading block">08:00 - 11:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div data-radio-checked="false" data-radio-value="morning">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent bg-gray-100 border-transparent select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">დილა</span>
+                                    <span class="text-sm text-heading block">08:00 - 11:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if request.POST|get_dict_value:'delivery_schedule,express' == 'noon' %}
+                            <div data-radio-checked="true" data-radio-value="noon">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent border-accent shadow-sm select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">შუადღე</span>
+                                    <span class="text-sm text-heading block">11:00 - 14:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div data-radio-checked="false" data-radio-value="noon">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent bg-gray-100 border-transparent select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">შუადღე</span>
+                                    <span class="text-sm text-heading block">11:00 - 14:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if request.POST|get_dict_value:'delivery_schedule,express' == 'afternoon' %}
+                            <div data-radio-checked="true" data-radio-value="afternoon">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent border-accent shadow-sm select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">შუადღის შემდეგ</span>
+                                    <span class="text-sm text-heading block">14:00 - 17:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div data-radio-checked="false" data-radio-value="afternoon">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent bg-gray-100 border-transparent select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">შუადღის შემდეგ</span>
+                                    <span class="text-sm text-heading block">14:00 - 17:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if request.POST|get_dict_value:'delivery_schedule,express' == 'evening' %}
+                            <div data-radio-checked="true" data-radio-value="evening">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent border-accent shadow-sm select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">საღამო</span>
+                                    <span class="text-sm text-heading block">17:00 - 20:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div data-radio-checked="false" data-radio-value="evening">
+                                <div class="relative p-4 rounded border cursor-pointer group hover:border-accent bg-gray-100 border-transparent select-none">
+                                    <span class="text-sm text-heading font-semibold block mb-2">საღამო</span>
+                                    <span class="text-sm text-heading block">17:00 - 20:00 საათამდე</span>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="text-red-500 font-medium text-xs italic my-1">{{ form.errors|get_dict_value:'delivery_schedule' }}</div>
+                    </div>
+                </div>
+            </form>
+            <div class="mt-10 mb-10 w-full sm:mb-12 lg:mb-0 lg:max-w-[30%]">
+                <div class="w-full">
+                    <div class="mb-4 flex flex-col items-center space-x-4 rtl:space-x-reverse">
+                        <span class="text-base font-bold text-heading">თქვენი შეკვეთა</span>
+                    </div>
+                    <div class="flex flex-col border-b border-border-200 py-3">
+                        {% for item in cart_items %}
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex items-center justify-between text-base">
+                                <form method="post" action="{% url 'remove_from_cart' item.id %}">
+                                {% csrf_token %}
+                                <button class="flex h-7 w-7 shrink-0 items-center justify-center rounded text-muted transition-all duration-200 hover:bg-white hover:text-red-600 focus:bg-gray-100 focus:text-red-600 focus:outline-0">
+                                    <span class="sr-only">close</span>
+                                    <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                                </form>
+                                <span class="text-sm text-body ltr:ml-3 ltr:-mr-2 rtl:mr-3 rtl:-ml-2">
+                                    <span class="text-sm font-bold text-heading">{{ item.quantity }}</span>
+                                    <span class="mx-2">x</span>
+                                    <span>{{ item.product.title }}</span> | <span>1 ცალის ფასი </span>
+                                    {% if item.product.discounted_price > 0 %}
+                                    <span class="text-sm text-body">₾{{ item.product.discounted_price }}</span>
+                                    {% else %}
+                                    <span class="text-sm text-body">₾{{ item.product.price }}</span>
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-4 space-y-2">
+                        <div class="flex justify-between">
+                            <p class="text-sm text-body">სრული თანხა</p>
+                            <span class="text-sm text-body">₾{{ total_price }}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="text-sm text-body">გადასახადი</p><span class="text-sm text-body">გამოითვლება გადახდისას</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="text-sm text-body">სავარაუდო მიწოდება</p>
+                            <span class="text-sm text-body">გამოითვლება გადახდისას</span>
+                        </div>
+                    </div>
+                    <button id="checkout_button" class="inline-flex items-center justify-center shrink-0 font-semibold leading-none rounded outline-none transition duration-300 ease-in-out focus:outline-0 focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light border border-transparent hover:bg-accent-hover px-5 py-0 h-12 mt-5 w-full">
+                        შეკვეთის გაფორმება
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

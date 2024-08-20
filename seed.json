@@ -1,0 +1,327 @@
+[
+  {
+    "model": "core.category",
+    "pk": 1,
+    "fields": {
+      "parent": null,
+      "title": "დედა და ბავშვები",
+      "slug": "mother-and-child",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 2,
+    "fields": {
+      "parent": null,
+      "title": "კოსმეტიკა და ჰიგიენის საშუალებები",
+      "slug": "cosmetics-and-hygiene",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 3,
+    "fields": {
+      "parent": null,
+      "title": "პირის ღრუს მოვლა",
+      "slug": "oral-care",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 4,
+    "fields": {
+      "parent": null,
+      "title": "დეკორატიული კოსმეტიკა",
+      "slug": "decorative-cosmetics",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 5,
+    "fields": {
+      "parent": null,
+      "title": "მედიკამენტები",
+      "slug": "medicines",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 6,
+    "fields": {
+      "parent": null,
+      "title": "სპეციალური მოვლის საშუალებები",
+      "slug": "special-care",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 7,
+    "fields": {
+      "parent": null,
+      "title": "სამედიცინო ტექნიკა და აქსესუარები",
+      "slug": "medical-equipment-and-accessories",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 8,
+    "fields": {
+      "parent": null,
+      "title": "სასაჩუქრე ნაკრები",
+      "slug": "gift-set",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 9,
+    "fields": {
+      "parent": null,
+      "title": "საკვები დანამატი",
+      "slug": "food-additive",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 10,
+    "fields": {
+      "parent": null,
+      "title": "საკვები პროდუქტები",
+      "slug": "food-products",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 11,
+    "fields": {
+      "parent": null,
+      "title": "სექსუალური ჯანმრთელობა",
+      "slug": "sexual-health",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 12,
+    "fields": {
+      "parent": null,
+      "title": "სადეზინფექციო და დაცვის საშუალებები",
+      "slug": "disinfectant-and-protection-means",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.category",
+    "pk": 13,
+    "fields": {
+      "parent": null,
+      "title": "ვიტამინები",
+      "slug": "vitamins",
+      "created_at": "2024-08-01T12:11:03",
+      "updated_at": "2024-08-01T12:11:03"
+    }
+  },
+  {
+    "model": "core.product",
+    "pk": 1,
+    "fields": {
+      "title": "პაუჩი მსხალი 120გ 7234 გუდ გოუტი - Good Gout",
+      "description": "პაუჩი მსხალი 120გ 7234 გუდ გოუტი - Good Gout",
+      "slug": "pauchi-mskhali-120g-7234-gud-gouti-good-gout",
+      "price": "8.07",
+      "discounted_price": "0",
+      "image": "static/images/products/1.webp",
+      "created_at": "2024-08-01 15:11:03+03",
+      "updated_at": "2024-08-01 15:11:03+03",
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.product",
+    "pk": 2,
+    "fields": {
+      "title": "რძის ნაზავი სტანდარტ 2 5908 დანალაკ - Danalac",
+      "description": "რძის ნაზავი სტანდარტ 2 დანალაკ - Danalac, არის ძროხის რძის ფორმულა, სპეციალურად განკუთვნილი 6-12 თვემდე ჩვილებისთვის.\n",
+      "slug": "rdzis-nazavi-standart-2-5908-danalak-danalac",
+      "price": "33.9",
+      "discounted_price": "0",
+      "image": "static/images/products/2.webp",
+      "created_at": "2024-08-01 15:11:03+03",
+      "updated_at": "2024-08-01 15:11:03+03",
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.product",
+    "pk": 3,
+    "fields": {
+      "title": "Soskin - სოსკინი კრემ-პუდი SPF30 ოქროსფერი 5244",
+      "description": "Soskin - სოსკინი კრემ-პუდი SPF30 ოქროსფერი, ფარავს ნაკლოვანებებს, სიწითლესა და ლაქებს სახეზე. არაკომედოგენურია და არ შეიცავს სურნელოვან დანამატებს.\n",
+      "slug": "soskin-soskini-krem-pudi-spf30-oqrosferi-5244",
+      "price": "88.00",
+      "discounted_price": "0",
+      "image": "static/images/products/3.webp",
+      "created_at": "2024-08-01 15:11:03+03",
+      "updated_at": "2024-08-01 15:11:03+03",
+      "categories": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "core.product",
+    "pk": 4,
+    "fields": {
+      "title": "FRISO - ფრისო პეპ AC 0273",
+      "description": "FRISO - ფრისო პეპ AC 0273",
+      "slug": "friso-friso-pep-ac-0273",
+      "price": "46.50",
+      "discounted_price": "0",
+      "image": "static/images/products/4.webp",
+      "created_at": "2024-08-01 15:11:03+03",
+      "updated_at": "2024-08-01 15:11:03+03",
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.product",
+    "pk": 5,
+    "fields": {
+      "title": "Heinz - ჰეინცი პიურე საქონლის ხორცით 0787",
+      "description": "Heinz - ჰეინცი პიურე საქონლის ხორცით 0787",
+      "slug": "heinz-heintsi-piure-saqonlis-khortsit-0787",
+      "price": "7.35",
+      "discounted_price": "0",
+      "image": "static/images/products/5.webp",
+      "created_at": "2024-08-01 15:11:03+03",
+      "updated_at": "2024-08-01 15:11:03+03",
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.product",
+    "pk": 6,
+    "fields": {
+      "title": "Heinz - ჰეინცი პიურე ინდაური 0824",
+      "description": "Heinz - ჰეინცი პიურე ინდაური 0824",
+      "slug": "heinz-heintsi-piure-indauri-0824",
+      "price": "7.35",
+      "discounted_price": "0",
+      "image": "static/images/products/6.webp",
+      "created_at": "2024-08-01 15:11:03+03",
+      "updated_at": "2024-08-01 15:11:03+03",
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "core.product",
+    "pk": 7,
+    "fields": {
+      "title": "Oral-B - ორალ ბი კბილის პასტა აღდგენა მათეთრებელი 75 მლ 4296",
+      "description": "Oral-B - ორალ ბი კბილის პასტა აღდგენა მათეთრებელი 75მლ 4296",
+      "slug": "oral-b-oral-bi-kbilis-pasta-aghdgena-matetrebeli-75-ml-4296",
+      "price": "12.55",
+      "discounted_price": "0",
+      "image": "static/images/products/7.webp",
+      "created_at": "2024-08-01 15:11:03+03",
+      "updated_at": "2024-08-01 15:11:03+03",
+      "categories": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 1,
+    "fields": {
+      "title": "მომლოდინე"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 2,
+    "fields": {
+      "title": "გადაუხდელი"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 3,
+    "fields": {
+      "title": "გადახდილი"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 4,
+    "fields": {
+      "title": "გადახდა გაუქმებულია"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 5,
+    "fields": {
+      "title": "გადახდა დაბრუნდა"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 6,
+    "fields": {
+      "title": "მუშავდება"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 7,
+    "fields": {
+      "title": "გადაეცა კურიერს"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 8,
+    "fields": {
+      "title": "დასრულებული"
+    }
+  },
+  {
+    "model": "core.orderstatus",
+    "pk": 9,
+    "fields": {
+      "title": "ნაღდი ანგარიშსწორება"
+    }
+  }
+]

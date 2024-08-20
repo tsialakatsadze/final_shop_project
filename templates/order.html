@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}
+    შეკვეთა მიღებულია
+{% endblock title %}
+{% block content %}
+    <div class="p-4 sm:p-8 mt-24">
+        <div class="mx-auto w-full max-w-screen-lg">
+            <div class="mb-5">
+                <a class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-hover" href="/">
+                    <svg width="1em" height="1em" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.5166 8.82913C18.5161 8.82872 18.5156 8.82817 18.5152 8.82776L11.1719 1.48546C10.8589 1.17235 10.4428 1 10.0001 1C9.55745 1 9.1413 1.17235 8.82816 1.48546L1.48868 8.82405C1.48621 8.82652 1.4836 8.82913 1.48127 8.8316C0.838503 9.47801 0.839602 10.5268 1.48443 11.1716C1.77903 11.4663 2.16798 11.6368 2.584 11.6548C2.60103 11.6565 2.61806 11.6573 2.63522 11.6573H2.92776V17.0606C2.92776 18.13 3.79797 19 4.86746 19H7.7404C8.0317 19 8.2678 18.7638 8.2678 18.4727V14.2363C8.2678 13.7484 8.66486 13.3515 9.15283 13.3515H10.8474C11.3354 13.3515 11.7323 13.7484 11.7323 14.2363V18.4727C11.7323 18.7638 11.9684 19 12.2597 19H15.1326C16.2022 19 17.0723 18.13 17.0723 17.0606V11.6573H17.3437C17.7862 11.6573 18.2024 11.4849 18.5156 11.1717C19.1612 10.526 19.1614 9.47527 18.5166 8.82913ZM17.7697 10.426C17.6559 10.5398 17.5045 10.6026 17.3437 10.6026H16.5449C16.2536 10.6026 16.0175 10.8387 16.0175 11.1299V17.0606C16.0175 17.5484 15.6206 17.9453 15.1326 17.9453H12.7871V14.2363C12.7871 13.1669 11.917 12.2968 10.8474 12.2968H9.15283C8.08321 12.2968 7.213 13.1669 7.213 14.2363V17.9453H4.86746C4.37962 17.9453 3.98256 17.5484 3.98256 17.0606V11.1299C3.98256 10.8387 3.74647 10.6026 3.45516 10.6026H2.67011C2.66187 10.6021 2.65377 10.6016 2.64539 10.6015C2.48827 10.5988 2.3409 10.5364 2.23047 10.4259C1.99562 10.191 1.99562 9.80884 2.23047 9.57387C2.23061 9.57387 2.23061 9.57373 2.23075 9.57359L2.23116 9.57318L9.5742 2.23116C9.68792 2.11731 9.83914 2.05469 10.0001 2.05469C10.1609 2.05469 10.3121 2.11731 10.426 2.23116L17.7674 9.57167C17.7685 9.57277 17.7697 9.57387 17.7708 9.57497C18.0045 9.81021 18.004 10.1916 17.7697 10.426Z" fill="currentColor" stroke="currentColor" stroke-width="0.5"></path>
+                    </svg>
+                    მთავარზე დაბრუნება
+                </a>
+            </div>
+            <div class="relative overflow-hidden rounded border shadow-sm">
+                <div class="bg-[#F7F8FA] lg:px-11 lg:py-5 p-6">
+                    <div class="flex flex-col flex-wrap items-center justify-between mb-0 text-base font-bold gap-x-8 text-heading sm:flex-row lg:flex-nowrap">
+                        <div class="order-2 grid w-full grid-cols-1 gap-6 xs:flex-nowrap sm:order-1 max-w-full basis-full justify-between md:grid-cols-2">
+                            <div class="flex items-center gap-3"><span
+                                    class="block text-xs shrink-0 grow-0 basis-auto xs:text-base lg:inline-block">შეკვეთის სტატუსი:</span>
+                                <div class="w-full lg:w-auto">
+                                    <span class="px-3 py-1 rounded-full bg-status-processing bg-opacity-[.15] text-status-processing min-h-[2rem] items-center justify-center text-[9px] !leading-none xs:text-sm inline-flex">{{ order.order_status.title }}</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 md:ml-auto"><span
+                                    class="block text-xs shrink-0 grow-0 basis-auto xs:text-base lg:inline-block">გადახდის სტატუსი:</span>
+                                <div class="w-full lg:w-auto">
+                                    <span class="px-3 py-1 rounded-full text-light bg-accent bg-opacity-[.15] !text-accent min-h-[2rem] items-center justify-center truncate whitespace-nowrap text-[9px] !leading-none xs:text-sm inline-flex">ნაღდი ანგარიშსწორებით</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light p-6 sm:p-8 lg:p-12">
+                    <div class="mb-6 grid gap-4 sm:grid-cols-2 md:mb-12 lg:grid-cols-3">
+                        <div class="rounded border border-border-200 px-5 py-4 shadow-sm">
+                            <h3 class="mb-2 text-sm font-semibold text-heading">შეკვეთის ნომერი</h3>
+                            <p class="text-sm text-body-dark">#{{ order.id }}</p>
+                        </div>
+                        <div class="rounded border border-border-200 px-5 py-4 shadow-sm">
+                            <h3 class="mb-2 text-sm font-semibold text-heading">შეკვეთის თარიღი</h3>
+                            <p class="text-sm text-body-dark">{{ order.created_at }}</p>
+                        </div>
+                        <div class="rounded border border-border-200 px-5 py-4 shadow-sm">
+                            <h3 class="mb-2 text-sm font-semibold text-heading">გადასახდელი თანხა</h3>
+                            <p class="text-sm text-body-dark">₾{{ order.total_price }}</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="w-full ltr:lg:pl-3 rtl:lg:pr-3">
+                            <h2 class="mb-6 text-xl font-bold text-heading">შეკვეთის დეტალები</h2>
+                            <div>
+                                <p class="mt-5 flex text-body-dark"><strong class="w-4/12 text-sm font-semibold text-heading">სახელი, გვარი:</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4">{{ order.firstname }}, {{ order.lastname }}</span>
+                                </p>
+                                <p class="mt-5 flex text-body-dark"><strong class="w-4/12 text-sm font-semibold text-heading">მობილური:</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4">{{ order.phone }}</span>
+                                </p>
+                                <p class="mt-5 flex text-body-dark">
+                                    <strong class="w-4/12 text-sm font-semibold text-heading">მიწოდების განრიგი:</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4 ">{{ order.delivery_schedule }}</span>
+                                </p>
+                                <p class="mt-10 flex text-body-dark">
+                                    <strong class="w-4/12 text-sm font-semibold text-heading">მიწოდების მისამართი</strong>
+                                </p>
+                                <p class="mt-5 flex text-body-dark">
+                                    <strong class="w-4/12 text-sm font-semibold text-heading">ქალაქი:</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4 ">{{ order.city }}</span>
+                                </p>
+                                <p class="mt-5 flex text-body-dark">
+                                    <strong class="w-4/12 text-sm font-semibold text-heading">რეგიონი:</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4 ">{{ order.region }}</span>
+                                </p>
+                                <p class="mt-5 flex text-body-dark">
+                                    <strong class="w-4/12 text-sm font-semibold text-heading">მისამართი:</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4 ">{{ order.address }}</span>
+                                </p>
+                                <p class="mt-5 flex text-body-dark">
+                                    <strong class="w-4/12 text-sm font-semibold text-heading">მისამართი 2:</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4 ">{{ order.second_address }}</span>
+                                </p>
+                                <p class="mt-5 flex text-body-dark">
+                                    <strong class="w-4/12 text-sm font-semibold text-heading">დამატებითი ინფორმაცია კურიერს :</strong>
+                                    <span class="w-8/12 text-sm ltr:pl-4 rtl:pr-4 ">{{ order.additional_info }}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <div class="rc-table orderDetailsTable w-full rc-table-fixed-header rc-table-scroll-horizontal">
+                            <div class="rc-table-container">
+                                <div class="rc-table-header" style="overflow: hidden;">
+                                    <table style="table-layout: fixed;">
+                                        <colgroup>
+                                            <col style="width: 385.156px;">
+                                            <col style="width: 154.062px;">
+                                            <col style="width: 154.062px;">
+                                            <col style="width: 215.719px;">
+                                            <col style="width: 17px;">
+                                        </colgroup>
+                                        <thead class="rc-table-thead">
+                                        <tr>
+                                            <th title="Item" class="rc-table-cell rc-table-cell-ellipsis"
+                                                style="text-align: left;"><span class="ltr:pl-20 rtl:pr-20">ნივთი</span>
+                                            </th>
+                                            <th class="rc-table-cell" style="text-align: center;">რაოდენობა</th>
+                                            <th class="rc-table-cell" style="text-align: right;">ფასი</th>
+                                            <th class="rc-table-cell" style="text-align: right;"></th>
+                                            <th class="rc-table-cell rc-table-cell-scrollbar"></th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="rc-table-body" style="overflow: auto scroll; max-height: 500px;">
+                                    <table style="width: 350px; min-width: 100%; table-layout: fixed;">
+                                        <colgroup>
+                                            <col style="width: 250px;">
+                                            <col style="width: 100px;">
+                                            <col style="width: 100px;">
+                                            <col style="width: 140px;">
+                                        </colgroup>
+                                        <tbody class="rc-table-tbody">
+                                        <tr aria-hidden="true" class="rc-table-measure-row"
+                                            style="height: 0px; font-size: 0px;">
+                                            <td style="padding: 0px; border: 0px; height: 0px;">
+                                                <div style="height: 0px; overflow: hidden;">&nbsp;</div>
+                                            </td>
+                                            <td style="padding: 0px; border: 0px; height: 0px;">
+                                                <div style="height: 0px; overflow: hidden;">&nbsp;</div>
+                                            </td>
+                                            <td style="padding: 0px; border: 0px; height: 0px;">
+                                                <div style="height: 0px; overflow: hidden;">&nbsp;</div>
+                                            </td>
+                                            <td style="padding: 0px; border: 0px; height: 0px;">
+                                                <div style="height: 0px; overflow: hidden;">&nbsp;</div>
+                                            </td>
+                                        </tr>
+                                        {% for order_item in order_items %}
+                                            <tr class="rc-table-row rc-table-row-level-0 !cursor-auto">
+                                            <td class="rc-table-cell rc-table-cell-ellipsis" style="text-align: left;">
+                                                <div class="flex items-center">
+                                                    <div class="relative flex h-16 w-16 shrink-0 overflow-hidden rounded">
+                                                        <img
+                                                             alt="{{ order_item.product.title }}"
+                                                             class="h-full w-full object-cover"
+                                                             src="/{{ order_item.product.image }}"
+                                                             style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"
+                                                        >
+                                                    </div>
+                                                    <div class="flex flex-col overflow-hidden ltr:ml-4 rtl:mr-4">
+                                                        <div class="mb-1 flex space-x-1 rtl:space-x-reverse">
+                                                            <a class="inline-block overflow-hidden truncate text-sm text-body transition-colors hover:text-accent hover:underline" href="{% url 'product_details' order_item.product.slug %}" target="_blank">{{ order_item.product.title }}</a>
+                                                        </div>
+                                                        <span class="mb-1 inline-block overflow-hidden truncate text-sm font-semibold text-accent">₾{{ order_item.price }}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="rc-table-cell" style="text-align: center;"><p class="text-base">{{ order_item.quantity }}</p></td>
+                                            <td class="rc-table-cell" style="text-align: right;">
+                                                <div>₾{{ order_item.price }}</div>
+                                            </td>
+                                            <td class="rc-table-cell" style="text-align: right;"></td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
